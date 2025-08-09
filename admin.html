@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>雪糕后台管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="alive-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <h1>雪糕后台管理</h1>
+      </div>
+      <nav class="app-nav">
+        <a class="nav-link" href="./index.html" aria-label="返回商店">返回商店</a>
+      </nav>
+    </header>
+
+    <main class="layout admin">
+      <section class="panel glass">
+        <h2>新增 / 编辑雪糕</h2>
+        <form id="item-form" class="form-grid" autocomplete="off">
+          <input type="hidden" id="item-id" />
+          <label>
+            <span>名称</span>
+            <input id="item-name" required placeholder="如：抹茶口味" />
+          </label>
+          <label>
+            <span>单价（CNY）</span>
+            <input id="item-price" type="number" inputmode="decimal" min="0" step="0.01" required placeholder="如：9.90" />
+          </label>
+          <label class="full">
+            <span>图片路径（本地或网络）</span>
+            <input id="item-image" placeholder="如：assets/img/matcha.png 或 file:///D:/images/matcha.png" />
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="save-item">保存</button>
+            <button type="button" class="btn" id="reset-form">重置</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel glass">
+        <div class="panel-head">
+          <h2>雪糕清单</h2>
+          <div class="toolbar">
+            <input type="file" id="import-file" accept="application/json" hidden />
+            <button class="btn" id="import-btn">导入</button>
+            <button class="btn" id="export-btn">导出</button>
+          </div>
+        </div>
+        <div id="items-table" class="items-table" role="table" aria-label="雪糕数据表">
+          <!-- 动态渲染 -->
+        </div>
+      </section>
+    </main>
+
+    <template id="item-row-template">
+      <div class="table-row" role="row">
+        <div class="cell media" role="cell">
+          <img class="thumb" alt="预览" />
+        </div>
+        <div class="cell" role="cell">
+          <div class="name"></div>
+        </div>
+        <div class="cell" role="cell">
+          <div class="price"></div>
+        </div>
+        <div class="cell path" role="cell">
+          <div class="image"></div>
+        </div>
+        <div class="cell actions" role="cell">
+          <button class="btn small" data-action="edit">编辑</button>
+          <button class="btn small danger" data-action="delete">删除</button>
+        </div>
+      </div>
+    </template>
+
+    <script src="./assets/js/store.js"></script>
+    <script src="./assets/js/admin.js"></script>
+  </body>
+  </html>
+
+

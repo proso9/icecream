@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>雪糕商店</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="alive-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <h1>雪糕商店</h1>
+      </div>
+      <nav class="app-nav">
+        <a class="nav-link" href="./admin.html" aria-label="进入后台管理">后台管理</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="catalog" id="catalog" aria-label="雪糕列表">
+        <!-- 动态渲染 -->
+      </section>
+
+      <aside class="summary" id="summary" aria-label="购买小结">
+        <div class="summary-inner">
+          <h2>小结</h2>
+          <div id="summary-list" class="summary-list"></div>
+          <div class="summary-total">
+            <span>合计</span>
+            <strong id="grand-total">CNY 0.00</strong>
+          </div>
+          <div class="summary-actions">
+            <button id="clear-cart" class="btn danger" aria-label="清空购物清单">一键清空</button>
+          </div>
+          <p class="summary-note">此页仅为信息展示，暂不提供在线支付功能。</p>
+        </div>
+      </aside>
+    </main>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="card-media">
+          <img class="card-img" alt="雪糕图片" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title"></h3>
+          <div class="card-meta">
+            <span class="price"></span>
+          </div>
+          <div class="quantity">
+            <button class="qty-btn minus" aria-label="减少数量" tabindex="-1">−</button>
+            <input class="qty-input" type="number" inputmode="numeric" min="0" step="1" />
+            <button class="qty-btn plus" aria-label="增加数量" tabindex="-1">＋</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="./assets/js/store.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+  </html>
+
+

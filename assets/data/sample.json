@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "items": [
+    { "id": "ic-vanilla", "name": "香草雪糕", "priceCny": 6, "imageUrl": "", "unit": "支" },
+    { "id": "ic-choco", "name": "巧克力雪糕", "priceCny": 8.5, "imageUrl": "", "unit": "支" },
+    { "id": "ic-matcha", "name": "抹茶雪糕", "priceCny": 9.9, "imageUrl": "", "unit": "支" },
+    { "id": "ic-strawberry", "name": "草莓雪球", "priceCny": 7.5, "imageUrl": "", "unit": "支" }
+  ]
+}
+
+
