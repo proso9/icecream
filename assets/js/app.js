@@ -82,8 +82,8 @@
     container.appendChild(frag);
   }
 
-  function updateSummary() {
-    const items = store.getItems();
+  async function updateSummary() {
+    const items = await store.getItems();
     const q = store.getQuantities();
     const listEl = document.getElementById("summary-list");
     const totalEl = document.getElementById("grand-total");
@@ -116,8 +116,9 @@
     updateSummary();
   }
 
-  function boot() {
-    const items = store.getItems();
+  async function boot() {
+    try { await store.init(); } catch {}
+    const items = await store.getItems();
     const quantities = store.getQuantities();
     renderCatalog(items, quantities);
     updateSummary();
@@ -125,7 +126,7 @@
     clearBtn.addEventListener("click", clearCart);
   }
 
-  document.addEventListener("DOMContentLoaded", boot);
+  document.addEventListener("DOMContentLoaded", () => { boot(); });
 })();
 
 
